@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="karelle.env.royal.WelcomeActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_margin="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to Royal Pizza"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textColor="@color/colorPrimary" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivWelcome"
+        android:src="@drawable/logoroyalpizzafull"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="2dp"/>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor= "#e0f47975"
+        android:elevation="5dp"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:id="@+id/view">
+        <RelativeLayout
+            android:id="@+id/layoutcart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_below="@+id/layoutMenu"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/ivCart"
+                android:src="@drawable/cartlogo"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+
+            <TextView
+                android:id="@+id/tvCartdetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Cart"
+                android:fontFamily="cursive"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/ivCart"
+                android:layout_toEndOf="@+id/ivCart" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor= "#e7e66965"
+        android:elevation="5dp"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:id="@+id/view3"
+>
+        <RelativeLayout
+            android:id="@+id/layoutLocate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_below="@+id/layoutcart"
+            android:layout_alignLeft="@+id/layoutcart"
+            android:layout_alignStart="@+id/layoutcart">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/ivLocate"
+                android:src="@drawable/locatelogo"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+
+            <TextView
+                android:id="@+id/tvLocate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Locate"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp"
+                android:fontFamily="cursive"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/ivLocate"
+                android:layout_toEndOf="@+id/ivLocate" />
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor= "#e7d14d48"
+        android:elevation="5dp"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:id="@+id/view2"
+ >
+        <RelativeLayout
+            android:id="@+id/layoutMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_below="@+id/ivWelcome"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/ivMenu"
+                android:src="@drawable/logomenuother"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+
+            <TextView
+                android:id="@+id/tvMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Menu"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25sp"
+                android:layout_centerVertical="true"
+                android:fontFamily="cursive"
+                android:layout_toRightOf="@+id/ivMenu"
+                android:layout_toEndOf="@+id/ivMenu" />
+
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>
+
+    <Button
+        android:id="@+id/btnStartOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:background="@color/colorPrimary"
+        android:text="Start Order"
+        android:padding="7dp"
+        android:layout_gravity="center_horizontal" />
+
+
+</LinearLayout>

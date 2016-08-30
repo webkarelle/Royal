@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "440653511274",
+    "firebase_url": "https://royal-f0866.firebaseio.com",
+    "project_id": "royal-f0866",
+    "storage_bucket": "royal-f0866.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440653511274:android:2c3b01628f28c710",
+        "android_client_info": {
+          "package_name": "karelle.env.royal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440653511274-kuor75l75guqb3a8vedq8rbjs9t2b171.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "karelle.env.royal",
+            "certificate_hash": "E97EFF92EF50BA16CF4CC31F35AF0B81ECB7CE1C"
+          }
+        },
+        {
+          "client_id": "440653511274-jalkmon1mlfpm1l1mlefch85aa2pk7f5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQZYm5ZanHkIJsEajSKe_BPwGzEedIJe0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440653511274-jalkmon1mlfpm1l1mlefch85aa2pk7f5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

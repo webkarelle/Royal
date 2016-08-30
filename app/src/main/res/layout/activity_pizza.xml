@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="karelle.env.royal.PizzaActivity">
+
+    <ImageView
+        android:id="@+id/ivPizza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/pizzapetit"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:id="@+id/tvCustomizePizza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Customize Your Pizza"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_below="@+id/ivPizza"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvCustomizePizza"
+        android:orientation="vertical">
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:layout_weight="4"
+            android:elevation="2dp">
+
+
+            <RelativeLayout
+                android:id="@+id/layoutToppingsSelection"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:text="0"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:background="@drawable/boutonrouge"
+                    android:visibility="visible"
+                    android:id="@+id/btnNumToppings"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+                <ImageView
+                    android:layout_width="76dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ivToppings"
+                    android:src="@drawable/toppingpizza"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/btnNumToppings"
+                    android:layout_toEndOf="@+id/btnNumToppings" />
+
+                <TextView
+                    android:id="@+id/tvTopping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Toppings"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25sp"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/ivToppingSelection"
+                    android:layout_toStartOf="@+id/ivToppingSelection" />
+                <ImageView
+                    android:id="@+id/ivToppingSelection"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/fleche"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="right|center_vertical" />
+
+
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+
+        <Button
+            android:id="@+id/btnSaveOD"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:background="@color/colorPrimary"
+            android:text="Add to Cart"
+            android:padding="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>

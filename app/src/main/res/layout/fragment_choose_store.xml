@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:tag="layoutFragmentChooseStore"
+    android:id="@+id/layoutFragmentChooseStore"
+    tools:context="karelle.env.royal.fragments.ChooseStoreFragment">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+
+        android:src="@drawable/iconestore"/>
+    <android.support.v7.widget.AppCompatSpinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spWhere"
+        android:textSize="10sp"
+        android:textColor="@color/colorPrimary"
+        android:spinnerMode="dropdown">
+
+    </android.support.v7.widget.AppCompatSpinner>
+
+</LinearLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="karelle.env.royal">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logoroyalpizza"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".PizzaActivity" />
+        <activity android:name=".ToppingsActivity" />
+        <activity android:name=".DrinksActivity" />
+        <activity android:name=".DesertActivity" />
+        <activity android:name=".CartActivity" />
+        <activity android:name=".controlers.CategoriesActivity" />
+        <activity android:name=".controlers.CategoriesRecyclerActivity" />
+        <activity android:name=".controlers.SubCategoriesActivity" />
+        <activity android:name=".controlers.SubCategoriesRecyclerActivity" />
+        <activity android:name=".controlers.OrdersActivity" />
+        <activity android:name=".controlers.OrdersRecyclerActivity" />
+        <activity android:name=".controlers.OrderDetailsActivity" />
+        <activity android:name=".controlers.OrderDetailsRecyclerActivity" />
+        <activity android:name=".ZivaActivity" />
+        <activity
+            android:name=".ODActivity"
+            android:label="@string/title_activity_od"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".SaladActivity" />
+        <activity android:name=".ToppingsZivaActivity" />
+        <activity android:name=".PastaActivity" />
+        <activity android:name=".TypePastaActivity" />
+        <activity android:name=".SaucePastaActivity" />
+        <activity android:name=".SubODActivity" />
+        <activity android:name=".WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".CheckOutActivity" />
+        <activity android:name=".FinalActivity"></activity>
+    </application>
+
+</manifest>

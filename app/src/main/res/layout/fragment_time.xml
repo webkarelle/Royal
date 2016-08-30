@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:tag="layoutfragmentTimePicker"
+    android:id="@+id/layoutfragmentTimePicker"
+    tools:context="karelle.env.royal.fragments.TimeFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose the time"/>
+
+    <TimePicker
+        android:layout_height="wrap_content"
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_weight="2" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save the Time"
+        android:textColor="#fff"
+        android:background="@color/colorPrimary"
+        android:id="@+id/btnSaveTime"/>
+
+</LinearLayout>

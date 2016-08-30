@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="karelle.env.royal.CheckOutActivity">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivCheckOut"
+        android:layout_margin="5dp"
+        android:background="@drawable/titrecheckout"
+        android:layout_gravity="center_horizontal"/>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor= "#e0f47975"
+        android:padding="5dp"
+        android:id="@+id/cvMode">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/valide"
+            android:id="@+id/ivValideMode"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose your mode : "
+            android:id="@+id/tvMode"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="choix"
+            android:textSize="20sp"
+            android:id="@+id/tvChoiceMode"
+            android:textColor="@color/colorPrimary"
+            />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_weight="3"
+        android:id="@+id/ivDelivery"
+        android:src="@drawable/delivery"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
+        android:layout_gravity="left"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="or"
+        android:id="@+id/tvOr"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_gravity="center_horizontal"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_weight="3"
+        android:id="@+id/ivCarryOut"
+        android:src="@drawable/takeaway"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
+        android:layout_below="@+id/cvMode"
+        android:layout_gravity="right" />
+
+
+ </LinearLayout>
+
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        app:cardBackgroundColor= "#e0f47975"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:id="@+id/cvWhere">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/valide"
+                android:id="@+id/ivValideWhere"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose Where : "
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/tvChooseWhere"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="choix"
+                android:id="@+id/tvWhere"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimary"
+                />
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/layoutfragment"
+    android:orientation="horizontal">
+
+</LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor= "#e0f47975"
+        android:elevation="5dp"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:id="@+id/cvWhen">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/valide"
+                android:id="@+id/ivValideWhen"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose When : "
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/tvChooseWhen" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="choix"
+                android:id="@+id/tvWhen"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimary"
+                />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="Click for Today"
+        android:id="@+id/btntodayWhen"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="or"
+            android:gravity="center_horizontal"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/tvOrWhen" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Click for now"
+            android:background="@color/colorPrimary"
+            android:textSize="10sp"
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:id="@+id/btnNowWhen" />
+
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/layoutTime">
+
+
+
+
+
+
+        </LinearLayout>
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="GO"
+    android:textColor="#fff"
+    android:layout_margin="5dp"
+    android:padding="5dp"
+    android:layout_gravity="center_horizontal"
+    android:background="@color/colorPrimary"
+    android:id="@+id/btnGo" />
+
+
+</LinearLayout>
+
