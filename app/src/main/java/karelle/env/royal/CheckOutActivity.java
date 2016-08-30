@@ -223,7 +223,7 @@ TimePicker mTimePicker;
         priceOrderString=priceOrder+" sh";
         numOrderString=""+idOrder;
 
-
+        Toast.makeText(CheckOutActivity.this, "coucou", Toast.LENGTH_SHORT).show();
         //init a model of user:
         User user = new User(currentUser.getUid(), currentUser.getEmail());
         //get a reference to the users table
