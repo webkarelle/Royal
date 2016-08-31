@@ -3,6 +3,7 @@ package karelle.env.royal;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private BottomSheetBehavior bsb;
     LinearLayout layoutWelcome,layoutBottomSheet;
     RelativeLayout layoutCart;
+
 
     Button btnStartOrder;
     OrderDetailsDAO daoOD;
@@ -60,20 +62,42 @@ public class WelcomeActivity extends AppCompatActivity {
 
         View bottomSheetView =findViewById(R.id.nsBottomSheet);
         bsb=BottomSheetBehavior.from(bottomSheetView);
-        layoutCart = (RelativeLayout)findViewById(R.id.layoutCart);
+        bsb.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(View bottomSheet, int newState) {
+                if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
+                    bsb.setPeekHeight(0);
+                }
+            }
+
+            @Override
+            public void onSlide(View bottomSheet, float slideOffset) {
+            }
+        });
+
         layoutWelcome= (LinearLayout)findViewById(R.id.layoutWelcome);
+        layoutWelcome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(WelcomeActivity.this, "j ai clicke sur le layoutWelcome", Toast.LENGTH_SHORT).show();
+                bsb.setPeekHeight(300);
+                bsb.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            }
+        });
+        layoutCart = (RelativeLayout)findViewById(R.id.layoutCart);
         layoutCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(WelcomeActivity.this, "j ai clicke sur le layoutCart", Toast.LENGTH_SHORT).show();
-               switch (bsb.getState())
-                {   case BottomSheetBehavior.STATE_COLLAPSED :
+                bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
+               /*switch (bsb.getState())
+                {   case BottomSheetBehavior.STATE_HIDDEN :
                         bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
                         break;
                     case BottomSheetBehavior.STATE_EXPANDED :
-                        bsb.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                        bsb.setState(BottomSheetBehavior.STATE_HIDDEN);
                         break;
-                }
+                }*/
             }
         });
         btnStartOrder = (Button)findViewById(R.id.btnStartOrder);
