@@ -14,8 +14,6 @@ import java.util.ArrayList;
 
 import karelle.env.royal.R;
 
-import karelle.env.royal.controlers.SubCategoriesActivity;
-
 import karelle.env.royal.db.SubCategoriesDAO;
 
 import karelle.env.royal.models.SubCategory;

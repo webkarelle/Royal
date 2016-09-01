@@ -13,7 +13,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import karelle.env.royal.R;
-import karelle.env.royal.controlers.CategoriesActivity;
 import karelle.env.royal.db.CategoriesDAO;
 import karelle.env.royal.models.Category;
 

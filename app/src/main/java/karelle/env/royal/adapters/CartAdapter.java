@@ -1,34 +1,22 @@
 package karelle.env.royal.adapters;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import karelle.env.royal.CartActivity;
 import karelle.env.royal.R;
-import karelle.env.royal.SubODActivity;
-import karelle.env.royal.controlers.OrderDetailsActivity;
 import karelle.env.royal.db.OrderDetailsDAO;
-import karelle.env.royal.db.SubOrderDetailsDAO;
 import karelle.env.royal.models.OrderDetail;
-import karelle.env.royal.models.SubOrderDetail;
 
 /**
  * Created by Salomé on 15/08/2016.

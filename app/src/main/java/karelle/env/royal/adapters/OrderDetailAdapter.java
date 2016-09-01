@@ -14,8 +14,6 @@ import java.util.ArrayList;
 
 import karelle.env.royal.R;
 
-import karelle.env.royal.controlers.OrderDetailsActivity;
-
 import karelle.env.royal.db.OrderDetailsDAO;
 
 import karelle.env.royal.models.OrderDetail;
