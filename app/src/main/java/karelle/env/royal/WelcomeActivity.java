@@ -14,6 +14,11 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import karelle.env.royal.db.CategoriesDAO;
 import karelle.env.royal.db.OrderDetailsDAO;
@@ -21,6 +26,7 @@ import karelle.env.royal.db.OrdersDAO;
 import karelle.env.royal.db.SubCategoriesDAO;
 import karelle.env.royal.db.SubOrderDetailsDAO;
 import karelle.env.royal.models.Category;
+import karelle.env.royal.models.Order;
 import karelle.env.royal.models.SubCategory;
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -93,14 +99,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 Toast.makeText(WelcomeActivity.this, "j ai clicke sur le layoutCart", Toast.LENGTH_SHORT).show();
                 bsb.setPeekHeight(300);
                 bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
-               /*switch (bsb.getState())
-                {   case BottomSheetBehavior.STATE_HIDDEN :
-                        bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
-                        break;
-                    case BottomSheetBehavior.STATE_EXPANDED :
-                        bsb.setState(BottomSheetBehavior.STATE_HIDDEN);
-                        break;
-                }*/
+
             }
         });
         layoutLocate = (RelativeLayout)findViewById(R.id.layoutLocate);
@@ -141,6 +140,29 @@ public class WelcomeActivity extends AppCompatActivity {
 
     }
     private void initDataDB() {
+        daoSubCat = new SubCategoriesDAO(this);
+        daoSubCat.delete();
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("SubCategories");
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+               Long numberOfSubCategories =  dataSnapshot.getChildrenCount();
+                for(DataSnapshot subCatSnapShot : dataSnapshot.getChildren())
+                {
+                    SubCategory subCat = subCatSnapShot.getValue(SubCategory.class);
+                    Toast.makeText(WelcomeActivity.this, "name"+subCat.getNameSubC(), Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
         daoSOD = new SubOrderDetailsDAO(this);
