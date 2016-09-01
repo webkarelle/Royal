@@ -62,14 +62,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                 }
             });
 
-            holder.layout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(context, SubODActivity.class);
-                    intent.putExtra("_ID", od.getIdOd());
-                    context.startActivity(intent);
-                }
-            });
+
         }
     public void deleteByHolder(CartViewHolder holder){
             //Search  in the arraylist

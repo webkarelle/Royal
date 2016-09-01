@@ -175,8 +175,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case(R.id.action_locate):
-                Intent j = new Intent(MainActivity.this, MapsActivity.class);
-                startActivity(j);
+
                 return true;
             case(R.id.action_tracker):
                 Intent k = new Intent(MainActivity.this, TrackerActivity.class);
