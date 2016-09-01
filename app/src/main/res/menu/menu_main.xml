@@ -27,4 +27,10 @@
         android:title="@string/action_locate"
         android:icon="@drawable/locatelogo"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/action_tracker"
+        android:orderInCategory="140"
+        android:title="@string/action_tracker"
+        android:icon="@drawable/icontracker"
+        app:showAsAction="always" />
 </menu>

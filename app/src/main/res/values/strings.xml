@@ -6,8 +6,10 @@
     <string name="action_cart">cart</string>
     <string name="action_home">home</string>
     <string name="action_locate">locate</string>
+    <string name="action_tracker">tracker</string>
     <string name="title_activity_od">ODActivity</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

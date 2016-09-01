@@ -26,7 +26,7 @@ import karelle.env.royal.models.SubCategory;
 public class WelcomeActivity extends AppCompatActivity {
     private BottomSheetBehavior bsb;
     LinearLayout layoutWelcome,layoutBottomSheet;
-    RelativeLayout layoutCart;
+    RelativeLayout layoutCart,layoutLocate,layoutMenu,layoutTracker;
 
 
     Button btnStartOrder;
@@ -62,6 +62,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
         View bottomSheetView =findViewById(R.id.nsBottomSheet);
         bsb=BottomSheetBehavior.from(bottomSheetView);
+        bsb.setHideable(true);
+        bsb.setState(BottomSheetBehavior.STATE_HIDDEN);
         bsb.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(View bottomSheet, int newState) {
@@ -89,6 +91,7 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(WelcomeActivity.this, "j ai clicke sur le layoutCart", Toast.LENGTH_SHORT).show();
+                bsb.setPeekHeight(300);
                 bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
                /*switch (bsb.getState())
                 {   case BottomSheetBehavior.STATE_HIDDEN :
@@ -98,6 +101,33 @@ public class WelcomeActivity extends AppCompatActivity {
                         bsb.setState(BottomSheetBehavior.STATE_HIDDEN);
                         break;
                 }*/
+            }
+        });
+        layoutLocate = (RelativeLayout)findViewById(R.id.layoutLocate);
+        layoutLocate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(WelcomeActivity.this, "j ai clicke sur le layoutLocate", Toast.LENGTH_SHORT).show();
+                bsb.setPeekHeight(275);
+                bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
+        layoutMenu = (RelativeLayout)findViewById(R.id.layoutMenu);
+        layoutMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(WelcomeActivity.this, "j ai clicke sur le layoutMenu", Toast.LENGTH_SHORT).show();
+                bsb.setPeekHeight(250);
+                bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
+        layoutTracker = (RelativeLayout)findViewById(R.id.layoutTracker);
+        layoutTracker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(WelcomeActivity.this, "j ai clicke sur le layoutTracker", Toast.LENGTH_SHORT).show();
+                bsb.setPeekHeight(250);
+                bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
             }
         });
         btnStartOrder = (Button)findViewById(R.id.btnStartOrder);

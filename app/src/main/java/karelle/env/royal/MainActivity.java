@@ -167,14 +167,20 @@ public class MainActivity extends AppCompatActivity {
             case(R.id.action_home):
                 Intent h = new Intent(MainActivity.this, WelcomeActivity.class);
                 startActivity(h);
+                return true;
 
             case(R.id.action_cart):
                 Intent i = new Intent(MainActivity.this, CartActivity.class);
                 startActivity(i);
-
                 return true;
+
             case(R.id.action_locate):
-                Toast.makeText(MainActivity.this, "gotoLocate", Toast.LENGTH_SHORT).show();
+                Intent j = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(j);
+                return true;
+            case(R.id.action_tracker):
+                Intent k = new Intent(MainActivity.this, TrackerActivity.class);
+                startActivity(k);
                 return true;
         }
 
