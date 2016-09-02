@@ -14,11 +14,14 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.List;
 
 import karelle.env.royal.db.CategoriesDAO;
 import karelle.env.royal.db.OrderDetailsDAO;
@@ -27,6 +30,7 @@ import karelle.env.royal.db.SubCategoriesDAO;
 import karelle.env.royal.db.SubOrderDetailsDAO;
 import karelle.env.royal.models.Category;
 import karelle.env.royal.models.Order;
+import karelle.env.royal.models.SubC;
 import karelle.env.royal.models.SubCategory;
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -42,11 +46,12 @@ public class WelcomeActivity extends AppCompatActivity {
     SubOrderDetailsDAO daoSOD;
     OrdersDAO ordersDAO;
     double priceOrder=0.0;
+    int i = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        initDataDB();
+
         FirebaseAuth.getInstance().addAuthStateListener(new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -61,6 +66,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     startActivity(intent);
                 }else {
                     Toast.makeText(WelcomeActivity.this, "Hello, " + currentUser.getEmail(), Toast.LENGTH_SHORT).show();
+                    initDataDB();
 
                 }
             }
@@ -142,20 +148,45 @@ public class WelcomeActivity extends AppCompatActivity {
     private void initDataDB() {
         daoSubCat = new SubCategoriesDAO(this);
         daoSubCat.delete();
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("SubCategories");
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+/*Long numberOfSubCategories =  dataSnapshot.getChildrenCount();
+                int inum =0;
+                Toast.makeText(WelcomeActivity.this, "numberOfSubCategories"+numberOfSubCategories, Toast.LENGTH_SHORT).show();
 
-               Long numberOfSubCategories =  dataSnapshot.getChildrenCount();
+                Toast.makeText(WelcomeActivity.this, "dataSnapshot.getValue() : "+dataSnapshot.getValue().toString(), Toast.LENGTH_LONG).show();
                 for(DataSnapshot subCatSnapShot : dataSnapshot.getChildren())
                 {
-                    SubCategory subCat = subCatSnapShot.getValue(SubCategory.class);
-                    Toast.makeText(WelcomeActivity.this, "name"+subCat.getNameSubC(), Toast.LENGTH_SHORT).show();
+                    SubC subC = subCatSnapShot.getValue(SubC.class);
+                    Toast.makeText(WelcomeActivity.this, "namesubCat n"+inum+" : "+subC.getNameSubC(), Toast.LENGTH_SHORT).show();
+                    inum++;
+                }*/
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("SubCategories");
+        int i = 0;
+        ref.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                SubC subC = dataSnapshot.getValue(SubC.class);
+                Toast.makeText(WelcomeActivity.this, "namesubCat n :  "+subC.getNameSubC(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(WelcomeActivity.this, "suivant", Toast.LENGTH_SHORT).show();
 
-                }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+
+
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
             }
 
             @Override

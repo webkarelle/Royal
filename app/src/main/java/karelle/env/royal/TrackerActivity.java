@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -51,14 +52,17 @@ public class TrackerActivity extends AppCompatActivity {
         //Get a reference to our table:
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         String uid = currentUser.getUid();
+        Toast.makeText(TrackerActivity.this, "uid"+uid, Toast.LENGTH_SHORT).show();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Orders/toDo").child(uid);
 
         //init a new instance of the adapter
-        TrackerAdapter adapter = new TrackerAdapter(ref);
+       TrackerAdapter adapter = new TrackerAdapter(ref);
 
         //set the adapter on the recyclerView
-        recyclerView.setAdapter(adapter);
+       //
+        // recyclerView.setAdapter(adapter);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }
+
