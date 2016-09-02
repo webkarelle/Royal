@@ -25,6 +25,7 @@ import karelle.env.royal.models.Order;
 public class TrackerActivity extends AppCompatActivity {
     String idCust;
     ImageView ivBackToHome;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,28 +40,21 @@ public class TrackerActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        initRecycler();
 
-
-    }
-
-
-    private void initRecycler() {
-        //find View By Id:
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.TrackerRecycler);
+        recyclerView = (RecyclerView) findViewById(R.id.TrackerRecycler);
 
         //Get a reference to our table:
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         String uid = currentUser.getUid();
         Toast.makeText(TrackerActivity.this, "uid"+uid, Toast.LENGTH_SHORT).show();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Orders/toDo").child(uid);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Orders").child(uid);
 
         //init a new instance of the adapter
        TrackerAdapter adapter = new TrackerAdapter(ref);
 
         //set the adapter on the recyclerView
-       //
-        // recyclerView.setAdapter(adapter);
+
+        recyclerView.setAdapter(adapter);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

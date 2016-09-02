@@ -226,7 +226,7 @@ TimePicker mTimePicker;
         //init a model of user:
         User user = new User(currentUser.getUid(), currentUser.getEmail());
         //get a reference to the users table
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Orders/toDo").child(user.getUserId());
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Orders").child(user.getUserId());
         // save the new User under the node <userID>
         ref.push().setValue(o);
     }
