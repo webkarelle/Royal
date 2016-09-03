@@ -38,24 +38,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="2dp"
                 android:src="@drawable/logoroyalpizzafull" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_margin="0dp">
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="1dp"
                     android:background="?attr/selectableItemBackground"
                     android:clickable="true"
-                    android:elevation="5dp"
+                    android:elevation="3dp"
                     android:focusable="true"
-                    android:padding="5dp"
+                    android:padding="3dp"
                     app:cardBackgroundColor="#e0f47975">
 
                     <RelativeLayout
@@ -71,8 +71,8 @@
 
                         <ImageView
                             android:id="@+id/ivCart"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentTop="true"
@@ -95,14 +95,63 @@
                     </RelativeLayout>
 
                 </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cvTracker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:elevation="3dp"
+                    android:focusable="true"
+                    android:padding="3dp"
+                    app:cardBackgroundColor="#e0f47975">
+
+                    <RelativeLayout
+                        android:id="@+id/layoutTracker"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/layoutMenu"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:id="@+id/ivTracker"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:src="@drawable/icontracker" />
+
+
+                        <TextView
+                            android:id="@+id/tvTracker"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/ivTracker"
+                            android:layout_toRightOf="@+id/ivTracker"
+                            android:fontFamily="cursive"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:text="The Tracker"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="20sp" />
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/view3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:elevation="5dp"
-                    android:padding="5dp"
+                    android:layout_margin="1dp"
+                    android:elevation="3dp"
+                    android:padding="3dp"
                     app:cardBackgroundColor="#e7e66965">
 
                     <RelativeLayout
@@ -118,8 +167,8 @@
 
                         <ImageView
                             android:id="@+id/ivLocate"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentTop="true"
@@ -148,9 +197,9 @@
                     android:id="@+id/view2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:elevation="5dp"
-                    android:padding="5dp"
+                    android:layout_margin="1dp"
+                    android:elevation="3dp"
+                    android:padding="3dp"
                     app:cardBackgroundColor="#e7d14d48">
 
                     <RelativeLayout
@@ -166,8 +215,8 @@
 
                         <ImageView
                             android:id="@+id/ivMenu"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentTop="true"
@@ -192,55 +241,6 @@
 
 
                 </android.support.v7.widget.CardView>
-                <android.support.v7.widget.CardView
-                    android:id="@+id/cvTracker"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="?attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:elevation="5dp"
-                    android:focusable="true"
-                    android:padding="5dp"
-                    app:cardBackgroundColor="#e0f47975">
-
-                    <RelativeLayout
-                        android:id="@+id/layoutTracker"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_below="@+id/layoutMenu"
-                        android:background="?attr/selectableItemBackground"
-                        android:clickable="true"
-                        android:focusable="true">
-
-                        <ImageView
-                            android:id="@+id/ivTracker"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:src="@drawable/icontracker" />
-
-
-                        <TextView
-                            android:id="@+id/tvTracker"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_toEndOf="@+id/ivTracker"
-                            android:layout_toRightOf="@+id/ivTracker"
-                            android:fontFamily="cursive"
-                            android:gravity="center_vertical|center_horizontal"
-                            android:text="The Tracker"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="20sp" />
-
-                    </RelativeLayout>
-
-                </android.support.v7.widget.CardView>
 
 
             </LinearLayout>
@@ -251,7 +251,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="@color/colorPrimary"
-                android:padding="5dp"
+                android:padding="3dp"
                 android:text="Start Order"
                 android:textColor="#fff"
                 android:textSize="20sp" />
@@ -277,8 +277,8 @@
 
             <ImageView
                 android:id="@+id/ivClosed"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/iconeclose" />

@@ -1,11 +1,15 @@
 package karelle.env.royal;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -320,4 +324,59 @@ public class WelcomeActivity extends AppCompatActivity {
 
     public void test(View view) {
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_welcome, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        switch(id) {
+            case(R.id.action_logout):
+                AlertDialog.Builder builder = new AlertDialog.Builder(WelcomeActivity.this);
+                builder.setTitle("LOG OUT");
+                builder.setMessage("Do you confirm log out");
+                builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        FirebaseAuth.getInstance().signOut();
+                    }
+                });
+                builder.setNegativeButton("no", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                });
+                builder.show();
+
+                return true;
+            case(R.id.action_main):
+                Intent h = new Intent(WelcomeActivity.this, MainActivity.class);
+                startActivity(h);
+                return true;
+
+            case(R.id.action_cart):
+                Intent i = new Intent(WelcomeActivity.this, CartActivity.class);
+                startActivity(i);
+                return true;
+
+            case(R.id.action_locate):
+                Intent j = new Intent(WelcomeActivity.this, LocateActivity.class);
+                startActivity(j);
+
+                return true;
+            case(R.id.action_tracker):
+                Intent k = new Intent(WelcomeActivity.this, TrackerActivity.class);
+                startActivity(k);
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }
