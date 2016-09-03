@@ -5,6 +5,20 @@ package karelle.env.royal.db;
  */
 public class DBContract {
 
+    public class StoreCt{
+        public static final String TABLE_NAME = "Store";
+        public static final String COL_ID = "_id";
+        public static final String COL_NAME = "name";
+        public static final String COL_ADD = "address";
+    }
+    public class UserCt{
+        public static final String TABLE_NAME = "User";
+        public static final String COL_ID = "_id";
+        public static final String COL_NAME = "name";
+        public static final String COL_EMAIL = "email";
+        public static final String COL_TEL = "tel";
+        public static final String COL_ADD = "address";
+    }
 
     public class CategoriesCt{
         public static final String TABLE_NAME = "Categories";

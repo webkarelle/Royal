@@ -18,13 +18,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import karelle.env.royal.models.User;
 
-import karelle.env.royal.db.OrderDetailsDAO;
-import karelle.env.royal.db.OrdersDAO;
-import karelle.env.royal.db.SubCategoriesDAO;
-import karelle.env.royal.db.SubOrderDetailsDAO;
-import karelle.env.royal.models.Category;
-import karelle.env.royal.models.SubCategory;
 
 public class LoginActivity extends AppCompatActivity {
     EditText etEmail;

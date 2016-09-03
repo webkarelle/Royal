@@ -55,7 +55,7 @@
                     android:clickable="true"
                     android:elevation="5dp"
                     android:focusable="true"
-                    android:padding="10dp"
+                    android:padding="5dp"
                     app:cardBackgroundColor="#e0f47975">
 
                     <RelativeLayout
@@ -90,7 +90,7 @@
                             android:gravity="center_vertical|center_horizontal"
                             android:text="The Cart"
                             android:textColor="@color/colorPrimary"
-                            android:textSize="25sp" />
+                            android:textSize="20sp" />
 
                     </RelativeLayout>
 
@@ -102,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:elevation="5dp"
-                    android:padding="10dp"
+                    android:padding="5dp"
                     app:cardBackgroundColor="#e7e66965">
 
                     <RelativeLayout
@@ -137,7 +137,7 @@
                             android:gravity="center_vertical|center_horizontal"
                             android:text="The Locate"
                             android:textColor="@color/colorPrimary"
-                            android:textSize="25sp" />
+                            android:textSize="20sp" />
 
 
                     </RelativeLayout>
@@ -150,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:elevation="5dp"
-                    android:padding="10dp"
+                    android:padding="5dp"
                     app:cardBackgroundColor="#e7d14d48">
 
                     <RelativeLayout
@@ -185,7 +185,7 @@
                             android:gravity="center_vertical|center_horizontal"
                             android:text="The Menu"
                             android:textColor="@color/colorPrimary"
-                            android:textSize="25sp" />
+                            android:textSize="20sp" />
 
 
                     </RelativeLayout>
@@ -201,7 +201,7 @@
                     android:clickable="true"
                     android:elevation="5dp"
                     android:focusable="true"
-                    android:padding="10dp"
+                    android:padding="5dp"
                     app:cardBackgroundColor="#e0f47975">
 
                     <RelativeLayout
@@ -236,7 +236,7 @@
                             android:gravity="center_vertical|center_horizontal"
                             android:text="The Tracker"
                             android:textColor="@color/colorPrimary"
-                            android:textSize="25sp" />
+                            android:textSize="20sp" />
 
                     </RelativeLayout>
 
@@ -251,7 +251,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="@color/colorPrimary"
-                android:padding="7dp"
+                android:padding="5dp"
                 android:text="Start Order"
                 android:textColor="#fff"
                 android:textSize="20sp" />
@@ -272,34 +272,52 @@
             android:id="@+id/layoutBottomSheet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
+            android:background="#f5ff0044"
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/iv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/ivClosed"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/iconeclose" />
 
 
             <TextView
-                android:id="@+id/tv"
-                android:layout_width="wrap_content"
+                android:id="@+id/tvThemeBottomSheet"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="cursive"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="Cart"
-                android:textColor="@color/colorPrimary"
-                android:textSize="25sp" />
+                android:textColor="#fff"
+                android:textSize="30sp"
+                android:layout_toLeftOf="@+id/ivClosed"
+                android:layout_toStartOf="@+id/ivClosed" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/tvBottomSheet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Large Text"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:text="The Cart is blablablablabla"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textColor="#fff"
+                android:layout_below="@+id/ivClosed"
+                android:layout_toRightOf="@+id/ivContentBottomSheet"
+                android:layout_toEndOf="@+id/ivContentBottomSheet" />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="300dp"
+                android:id="@+id/ivContentBottomSheet"
+                android:src="@drawable/screen_cart"
+
+                android:layout_below="@+id/ivClosed"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
         </RelativeLayout>
 

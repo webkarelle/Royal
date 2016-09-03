@@ -1,19 +1,14 @@
 package karelle.env.royal;
 
 import android.content.Intent;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,7 +19,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 import karelle.env.royal.db.FinalOrdersDAO;
 import karelle.env.royal.db.OrderDetailsDAO;
@@ -37,6 +31,7 @@ import karelle.env.royal.fragments.WhereFragment;
 import karelle.env.royal.models.Order;
 import karelle.env.royal.models.OrderDetail;
 import karelle.env.royal.models.SubOrderDetail;
+import karelle.env.royal.models.User;
 
 public class CheckOutActivity extends AppCompatActivity {
 Spinner spWhere;
@@ -226,7 +221,7 @@ TimePicker mTimePicker;
         //init a model of user:
         User user = new User(currentUser.getUid(), currentUser.getEmail());
         //get a reference to the users table
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Orders").child(user.getUserId());
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Orders").child(user.getUserId());
         // save the new User under the node <userID>
         ref.push().setValue(o);
     }

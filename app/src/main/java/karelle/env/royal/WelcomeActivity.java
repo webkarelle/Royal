@@ -8,8 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,17 +28,23 @@ import java.util.List;
 import karelle.env.royal.db.CategoriesDAO;
 import karelle.env.royal.db.OrderDetailsDAO;
 import karelle.env.royal.db.OrdersDAO;
+import karelle.env.royal.db.StoreDAO;
 import karelle.env.royal.db.SubCategoriesDAO;
 import karelle.env.royal.db.SubOrderDetailsDAO;
+import karelle.env.royal.db.UserDAO;
 import karelle.env.royal.models.Category;
 import karelle.env.royal.models.Order;
+import karelle.env.royal.models.Store;
 import karelle.env.royal.models.SubC;
 import karelle.env.royal.models.SubCategory;
+import karelle.env.royal.models.User;
 
 public class WelcomeActivity extends AppCompatActivity {
     private BottomSheetBehavior bsb;
     LinearLayout layoutWelcome,layoutBottomSheet;
     RelativeLayout layoutCart,layoutLocate,layoutMenu,layoutTracker;
+    ImageView ivClosed,ivContentBottomSheet;
+    TextView tvBottomSheet,tvThemeBottomSheet;
 
 
     Button btnStartOrder;
@@ -46,7 +54,9 @@ public class WelcomeActivity extends AppCompatActivity {
     SubOrderDetailsDAO daoSOD;
     OrdersDAO ordersDAO;
     double priceOrder=0.0;
-    int i = 0;
+    UserDAO userDAO;
+    StoreDAO storeDAO;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,12 +76,11 @@ public class WelcomeActivity extends AppCompatActivity {
                     startActivity(intent);
                 }else {
                     Toast.makeText(WelcomeActivity.this, "Hello, " + currentUser.getEmail(), Toast.LENGTH_SHORT).show();
-                    initDataDB();
 
                 }
             }
         });
-
+        initDataDB();
         View bottomSheetView =findViewById(R.id.nsBottomSheet);
         bsb=BottomSheetBehavior.from(bottomSheetView);
         bsb.setHideable(true);
@@ -88,7 +97,7 @@ public class WelcomeActivity extends AppCompatActivity {
             public void onSlide(View bottomSheet, float slideOffset) {
             }
         });
-
+        ivContentBottomSheet =(ImageView)findViewById(R.id.ivContentBottomSheet);
         layoutWelcome= (LinearLayout)findViewById(R.id.layoutWelcome);
         layoutWelcome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +114,11 @@ public class WelcomeActivity extends AppCompatActivity {
                 Toast.makeText(WelcomeActivity.this, "j ai clicke sur le layoutCart", Toast.LENGTH_SHORT).show();
                 bsb.setPeekHeight(300);
                 bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
+                tvBottomSheet = (TextView)findViewById(R.id.tvBottomSheet);
+                tvBottomSheet.setText("The Cart is the activity .........");
+                tvThemeBottomSheet = (TextView)findViewById(R.id.tvThemeBottomSheet);
+                tvThemeBottomSheet.setText("Cart");
+                ivContentBottomSheet.setImageResource(R.drawable.screen_cart);
 
             }
         });
@@ -115,6 +129,11 @@ public class WelcomeActivity extends AppCompatActivity {
                 Toast.makeText(WelcomeActivity.this, "j ai clicke sur le layoutLocate", Toast.LENGTH_SHORT).show();
                 bsb.setPeekHeight(275);
                 bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
+                tvBottomSheet = (TextView)findViewById(R.id.tvBottomSheet);
+                tvBottomSheet.setText("The Locate is the activity .........");
+                tvThemeBottomSheet = (TextView)findViewById(R.id.tvThemeBottomSheet);
+                tvThemeBottomSheet.setText("Locate");
+                ivContentBottomSheet.setImageResource(R.drawable.screen_locate);
             }
         });
         layoutMenu = (RelativeLayout)findViewById(R.id.layoutMenu);
@@ -124,6 +143,12 @@ public class WelcomeActivity extends AppCompatActivity {
                 Toast.makeText(WelcomeActivity.this, "j ai clicke sur le layoutMenu", Toast.LENGTH_SHORT).show();
                 bsb.setPeekHeight(250);
                 bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
+                tvBottomSheet = (TextView)findViewById(R.id.tvBottomSheet);
+                tvBottomSheet.setText("The Menu is the activity .........");
+                tvThemeBottomSheet = (TextView)findViewById(R.id.tvThemeBottomSheet);
+                tvThemeBottomSheet.setText("Menu");
+                ivContentBottomSheet.setImageResource(R.drawable.screen_menu);
+
             }
         });
         layoutTracker = (RelativeLayout)findViewById(R.id.layoutTracker);
@@ -133,6 +158,11 @@ public class WelcomeActivity extends AppCompatActivity {
                 Toast.makeText(WelcomeActivity.this, "j ai clicke sur le layoutTracker", Toast.LENGTH_SHORT).show();
                 bsb.setPeekHeight(250);
                 bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
+                tvBottomSheet = (TextView)findViewById(R.id.tvBottomSheet);
+                tvBottomSheet.setText("The Tracker is the activity .........");
+                tvThemeBottomSheet = (TextView)findViewById(R.id.tvThemeBottomSheet);
+                tvThemeBottomSheet.setText("Tracker");
+                ivContentBottomSheet.setImageResource(R.drawable.screen_tracker);
             }
         });
         btnStartOrder = (Button)findViewById(R.id.btnStartOrder);
@@ -143,11 +173,24 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        ivClosed= (ImageView)findViewById(R.id.ivClosed);
+        ivClosed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(WelcomeActivity.this, "j ai clicke sur le clodedu BottomSheet", Toast.LENGTH_SHORT).show();
+                bsb.setPeekHeight(300);
+                bsb.setState(BottomSheetBehavior.STATE_COLLAPSED);
 
+            }
+        });
     }
     private void initDataDB() {
         daoSubCat = new SubCategoriesDAO(this);
         daoSubCat.delete();
+        storeDAO = new StoreDAO(this);
+        storeDAO.delete();
+        storeDAO.insert(new Store("1","Store1","Ashdod 15 sheveth Levy"));
+        storeDAO.insert(new Store("2","Store2","Ashdod 12 sheveth Benyamin"));
 
 /*Long numberOfSubCategories =  dataSnapshot.getChildrenCount();
                 int inum =0;
@@ -160,14 +203,14 @@ public class WelcomeActivity extends AppCompatActivity {
                     Toast.makeText(WelcomeActivity.this, "namesubCat n"+inum+" : "+subC.getNameSubC(), Toast.LENGTH_SHORT).show();
                     inum++;
                 }*/
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("SubCategories");
+        /*DatabaseReference ref = FirebaseDatabase.getInstance().getReference("SubCategories");
         int i = 0;
         ref.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 SubC subC = dataSnapshot.getValue(SubC.class);
-                Toast.makeText(WelcomeActivity.this, "namesubCat n :  "+subC.getNameSubC(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(WelcomeActivity.this, "suivant", Toast.LENGTH_SHORT).show();
+                Toast.makeText(WelcomeActivity.this, "namesubCat n :  "+subC.toString(), Toast.LENGTH_SHORT).show();
+
 
             }
 
@@ -195,6 +238,9 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
+*/      userDAO = new UserDAO(this);
+        userDAO.delete();
+        userDAO.insert(new User("1","2","13/11 sheveth levy Ashdod"));
 
         daoSOD = new SubOrderDetailsDAO(this);
         daoSOD.delete();

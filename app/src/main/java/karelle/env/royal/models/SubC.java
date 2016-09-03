@@ -14,15 +14,6 @@ public class SubC implements Parcelable {
     public SubC() {
     }
 
-
-    public SubC( String nameSubC, String typeSubC,String priceSubC) {
-        this.nameSubC = nameSubC;
-        this.typeSubC = typeSubC;
-        this.priceSubC = priceSubC;
-
-    }
-
-
     public String getNameSubC() {
         return nameSubC;
     }
@@ -49,28 +40,33 @@ public class SubC implements Parcelable {
 
 
     @Override
+    public String toString() {
+        return "SubC{" +
+                "nameSubC='" + nameSubC + '\'' +
+                ", typeSubC='" + typeSubC + '\'' +
+                ", priceSubC='" + priceSubC + '\'' +
+                '}';
+    }
+
+    @Override
     public int describeContents() {
         return 0;
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-
         dest.writeString(this.nameSubC);
         dest.writeString(this.typeSubC);
         dest.writeString(this.priceSubC);
-
     }
 
     protected SubC(Parcel in) {
-
         this.nameSubC = in.readString();
         this.typeSubC = in.readString();
         this.priceSubC = in.readString();
-
     }
 
-    public static final Parcelable.Creator<SubC> CREATOR = new Parcelable.Creator<SubC>() {
+    public static final Creator<SubC> CREATOR = new Creator<SubC>() {
         @Override
         public SubC createFromParcel(Parcel source) {
             return new SubC(source);
@@ -81,14 +77,4 @@ public class SubC implements Parcelable {
             return new SubC[size];
         }
     };
-
-    @Override
-    public String toString() {
-        return "SubC{" +
-
-                "nameSubC='" + nameSubC + '\'' +
-                ", typeSubC='" + typeSubC + '\'' +
-                ", priceSubC=" + priceSubC +
-                '}';
-    }
 }

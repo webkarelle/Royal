@@ -16,6 +16,24 @@ public class DBHelper extends SQLiteOpenHelper {
     //Methods that we need to implement:
     @Override
     public void onCreate(SQLiteDatabase db) {
+        String createUserTable = "CREATE TABLE " +DBContract.UserCt.TABLE_NAME + "(" +
+                DBContract.UserCt.COL_ID + " TEXT, " +
+                DBContract.UserCt.COL_NAME + " TEXT, " +
+                DBContract.UserCt.COL_EMAIL + " TEXT, " +
+                DBContract.UserCt.COL_TEL + " TEXT, " +
+                DBContract.UserCt.COL_ADD + " TEXT " +
+                "); ";
+
+        db.execSQL(createUserTable);
+
+        String createStoreTable = "CREATE TABLE " +DBContract.StoreCt.TABLE_NAME + "(" +
+                DBContract.StoreCt.COL_ID + " TEXT, " +
+                DBContract.StoreCt.COL_NAME + " TEXT, " +
+                DBContract.StoreCt.COL_ADD + " TEXT " +
+                "); ";
+
+        db.execSQL(createStoreTable);
+
        String createSubCategoriesTable = "CREATE TABLE " +DBContract.SubCategoriesCt.TABLE_NAME + "(" +
                 DBContract.SubCategoriesCt.COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
                 DBContract.SubCategoriesCt.COL_NAME + " TEXT NOT NULL, " +
@@ -130,6 +148,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
         String dropOrders = "DROP TABLE IF EXISTS" + DBContract.OrdersCt.TABLE_NAME + ";";
         db.execSQL(dropOrders);
+
+        String dropUser = "DROP TABLE IF EXISTS" + DBContract.UserCt.TABLE_NAME + ";";
+        db.execSQL(dropUser);
+
+        String dropStores = "DROP TABLE IF EXISTS" + DBContract.StoreCt.TABLE_NAME + ";";
+        db.execSQL(dropStores);
 
         onCreate(db);
     }

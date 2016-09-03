@@ -175,6 +175,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case(R.id.action_locate):
+                Intent j = new Intent(MainActivity.this, LocateActivity.class);
+                startActivity(j);
 
                 return true;
             case(R.id.action_tracker):
