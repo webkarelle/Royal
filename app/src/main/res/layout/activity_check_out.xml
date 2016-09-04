@@ -28,8 +28,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="2dp"
             android:src="@drawable/valide"
             android:id="@+id/ivValideMode"/>
         <TextView
@@ -112,8 +113,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="2dp"
                 android:src="@drawable/valide"
                 android:id="@+id/ivValideWhere"/>
 
@@ -159,8 +161,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="2dp"
                 android:src="@drawable/valide"
                 android:id="@+id/ivValideWhen"/>
 
@@ -187,12 +190,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:text="Click for Today"
-        android:id="@+id/btntodayWhen"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Click for TODAY"
+            android:background="#e0e2134e"
+            android:textSize="12sp"
+            android:layout_margin="10dp"
+            android:textColor="#fff"
+            android:id="@+id/btntodayWhen" />
 
         <TextView
             android:layout_width="0dp"
@@ -201,15 +208,15 @@
             android:text="or"
             android:gravity="center_horizontal"
             android:textSize="15sp"
-            android:textColor="@color/colorPrimary"
+            android:textColor="#e0e2134e"
             android:id="@+id/tvOrWhen" />
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Click for now"
-            android:background="@color/colorPrimary"
-            android:textSize="10sp"
+            android:text="Click for   NOW"
+            android:background="#e0e2134e"
+            android:textSize="12sp"
             android:layout_margin="10dp"
             android:textColor="#fff"
             android:id="@+id/btnNowWhen" />
