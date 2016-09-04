@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -36,11 +37,12 @@ import karelle.env.royal.models.User;
 public class CheckOutActivity extends AppCompatActivity {
 Spinner spWhere;
 TimePicker mTimePicker;
-    String numOrderString="",priceOrderString="";
+    String numOrderString="",priceOrderString="",timeString="11H";
+    int timeInt = 11;
     Button btnNowWhen,btntodayWhen,btnGo;
-    ImageView ivValideMode,ivValideWhere,ivValideWhen,ivCarryOut,ivDelivery;
+    ImageView ivValideMode,ivValideWhere,ivValideWhen,ivCarryOut,ivDelivery,ivMinus,ivPlus,ivStore1,ivStore2,ivHomeDelivery;
     //ImageButton;
-    TextView tvChoiceMode,tvMode,tvChooseWhen,tvWhen;
+    TextView tvChoiceMode,tvMode,tvChooseWhen,tvWhen,tvChooseWhere,tvWhere,tvTime,tvAddStore1,tvAddStore2;
     boolean isDelivery;
     OrderDetailsDAO daoOD;
     OrdersDAO daoOrder;
@@ -64,6 +66,13 @@ TimePicker mTimePicker;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_out);
+
+
+        ivStore1= (ImageView)findViewById(R.id.ivStore1);
+        ivStore2= (ImageView)findViewById(R.id.ivStore2);
+        ivHomeDelivery = (ImageView)findViewById(R.id.ivHomeDelivery);
+
+
         ivValideMode = (ImageView)findViewById(R.id.ivValideMode);
         ivValideMode.setVisibility(View.INVISIBLE);
         ivValideWhere = (ImageView)findViewById(R.id.ivValideWhere);
@@ -72,9 +81,16 @@ TimePicker mTimePicker;
         ivValideWhen.setVisibility(View.INVISIBLE);
         tvChoiceMode = (TextView )findViewById(R.id.tvChoiceMode);
         tvMode = (TextView )findViewById(R.id.tvMode);
+        tvTime = (TextView)findViewById(R.id.tvTime);
+        tvTime.setVisibility(View.INVISIBLE);
+        ivMinus = (ImageView)findViewById(R.id.ivMinus);
+        ivMinus.setVisibility(View.INVISIBLE);
+        ivPlus = (ImageView)findViewById(R.id.ivPlus);
+        ivPlus.setVisibility(View.INVISIBLE);
         tvWhen =(TextView)findViewById(R.id.tvWhen);
         tvChooseWhen =(TextView)findViewById(R.id.tvChooseWhen);
-        getSupportFragmentManager().beginTransaction().replace(R.id.layoutfragment,new WhereFragment()).commit();
+        tvChooseWhere=(TextView)findViewById(R.id.tvChooseWhere);
+        tvWhere =(TextView)findViewById(R.id.tvWhere);
 
         ivDelivery = (ImageView)findViewById(R.id.ivDelivery);
         ivDelivery.setOnClickListener(new View.OnClickListener() {
@@ -86,8 +102,11 @@ TimePicker mTimePicker;
                 addDelivery="addressHome";
                 ivValideMode.setVisibility(View.VISIBLE);
                 tvChoiceMode.setText("Delivery");
-                tvMode.setText("Mode Choosed :  ");
-                getSupportFragmentManager().beginTransaction().replace(R.id.layoutfragment,new DeliveryFragment()).commit();
+                tvMode.setText("Mode :  ");
+                ivValideWhere.setVisibility(View.VISIBLE);
+                tvWhere.setText("HomeDelivery");
+                tvChooseWhere.setText("Where : ");
+
             }
         });
         ivCarryOut = (ImageView)findViewById(R.id.ivCarryOut);
@@ -99,8 +118,11 @@ TimePicker mTimePicker;
                 ivValideMode.setVisibility(View.VISIBLE);
                 tvChoiceMode.setText("CarryOut");
                 placeDelivery="Store1";//or other Store
-                tvMode.setText("Mode Choosed :  ");
-                getSupportFragmentManager().beginTransaction().replace(R.id.layoutfragment,new ChooseStoreFragment()).commit();
+                tvMode.setText("Mode :  ");
+                ivValideWhere.setVisibility(View.VISIBLE);
+                tvChooseWhere.setText("Where : ");
+                tvWhere.setText("Store");
+
             }
         });
 
@@ -109,21 +131,47 @@ TimePicker mTimePicker;
         btntodayWhen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle args=new Bundle();
-                TimeFragment timeF =new TimeFragment();
-                String timeString="";
-                getSupportFragmentManager().beginTransaction().replace(R.id.layoutTime,timeF).commit();
-                //args=timeF.getArguments();
-                //timeString= args.getString("time",timeString);
-                dateDelivery="For Today at ";
+                tvTime.setVisibility(View.VISIBLE);
+                tvTime.setText(timeString);
+                ivPlus.setVisibility(View.VISIBLE);
+                ivPlus.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (timeInt<22)
+                        {timeInt++;}
+                        else
+                        {timeInt=22;
+                            Toast.makeText(CheckOutActivity.this, "Delivery max 22H", Toast.LENGTH_SHORT).show();}
+                        timeString=timeInt+"H";
+                        tvTime.setText(timeString);
+                        tvWhen.setText(timeString);
+                        dateDelivery=timeString;
+                    }
+                });
+                ivMinus.setVisibility(View.VISIBLE);
+                ivMinus.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (timeInt>12)
+                        {timeInt--;}
+                        else
+                        {timeInt=11;
+                            Toast.makeText(CheckOutActivity.this, "Delivery min 11H", Toast.LENGTH_SHORT).show();}
+                        timeString=timeInt+"H";
+                        tvTime.setText(timeString);
+                        tvWhen.setText(timeString);
+                        dateDelivery=timeString;
+                    }
+                });
                 ivValideWhen.setVisibility(View.VISIBLE);
-                tvWhen.setText(timeString);
-                tvChooseWhen.setText("Time Choosed : ");
+                tvWhen.setText(tvTime.getText().toString());
+                tvChooseWhen.setText("When : ");
 
 
             }
         });
-        //getSupportFragmentManager().beginTransaction().remove(timeF).commit();
+
 
 
 
@@ -133,9 +181,13 @@ TimePicker mTimePicker;
             @Override
             public void onClick(View view) {
                 ivValideWhen.setVisibility(View.VISIBLE);
-                tvWhen.setText("now");
-                tvChooseWhen.setText("Time Choosed : ");
+                tvWhen.setText("Now");
+                tvChooseWhen.setText("When : ");
                 dateDelivery="For Now";
+                tvTime.setVisibility(View.INVISIBLE);
+                ivMinus.setVisibility(View.INVISIBLE);
+                ivPlus.setVisibility(View.INVISIBLE);
+
 
             }
         });
