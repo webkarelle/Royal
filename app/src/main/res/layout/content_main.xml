@@ -12,17 +12,30 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="karelle.env.royal.MainActivity"
     tools:showIn="@layout/activity_main">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/logomenuother"
+        android:layout_alignParentTop="true"
+        android:id="@+id/imageView6" />
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="Choose your Own Menu"
     android:background="@color/colorAccent"
     android:fontFamily="cursive"
-    android:gravity="center_horizontal"
+    android:gravity="center_horizontal|center_vertical"
     android:textSize="20sp"
-    android:textColor="#fff"/>
-
+    android:textColor="#fff"
+    android:id="@+id/textView5"
+    android:layout_alignParentTop="true"
+    android:layout_toRightOf="@+id/imageView6"
+    android:layout_toEndOf="@+id/imageView6"
+    android:layout_alignBottom="@+id/imageView6" />
+</RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

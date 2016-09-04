@@ -192,7 +192,7 @@ public class WelcomeActivity extends AppCompatActivity {
         daoSubCat = new SubCategoriesDAO(this);
         daoSubCat.delete();
         storeDAO = new StoreDAO(this);
-        storeDAO.delete();
+        //storeDAO.delete();
         storeDAO.insert(new Store("1","Store1","Ashdod 15 sheveth Levy"));
         storeDAO.insert(new Store("2","Store2","Ashdod 12 sheveth Benyamin"));
 
