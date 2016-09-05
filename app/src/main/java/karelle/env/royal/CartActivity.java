@@ -25,7 +25,7 @@ public class CartActivity extends AppCompatActivity {
     OrderDetailsDAO daoOD;
     ArrayList<OrderDetail> arrayListOD = new ArrayList<>();
     RecyclerView recyclerCart;
-    Button btnOrder,btnUsePromotion,btnAddOrderDetail;
+    Button btnOrder,btnUsePromotion,btnAddOrderDetail,btnLocate;
     String numOrder;
     Double priceOrder=0.0;
     Bundle extras = new Bundle();
@@ -44,7 +44,14 @@ public class CartActivity extends AppCompatActivity {
 
         tvSumOrder = (TextView) findViewById(R.id.tvSumOrder);
         tvSumOrder.setText("Total : "+priceOrder+"sh");
-
+        btnLocate = (Button) findViewById(R.id.btnLocate);
+        btnLocate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent j = new Intent(CartActivity.this, LocateActivity.class);
+                startActivity(j);
+            }
+        });
         btnAddOrderDetail = (Button) findViewById(R.id.btnAddOrderDetail);
         btnAddOrderDetail.setOnClickListener(new View.OnClickListener() {
             @Override

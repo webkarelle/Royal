@@ -106,7 +106,7 @@ public class WelcomeActivity extends AppCompatActivity {
         layoutWelcome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(WelcomeActivity.this, "j ai clicke sur le layoutWelcome", Toast.LENGTH_SHORT).show();
+
                 bsb.setPeekHeight(300);
                 bsb.setState(BottomSheetBehavior.STATE_COLLAPSED);
             }
@@ -115,7 +115,7 @@ public class WelcomeActivity extends AppCompatActivity {
         layoutCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(WelcomeActivity.this, "j ai clicke sur le layoutCart", Toast.LENGTH_SHORT).show();
+
                 bsb.setPeekHeight(300);
                 bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
                 tvBottomSheet = (TextView)findViewById(R.id.tvBottomSheet);
@@ -130,7 +130,7 @@ public class WelcomeActivity extends AppCompatActivity {
         layoutLocate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(WelcomeActivity.this, "j ai clicke sur le layoutLocate", Toast.LENGTH_SHORT).show();
+
                 bsb.setPeekHeight(275);
                 bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
                 tvBottomSheet = (TextView)findViewById(R.id.tvBottomSheet);
@@ -144,7 +144,7 @@ public class WelcomeActivity extends AppCompatActivity {
         layoutMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(WelcomeActivity.this, "j ai clicke sur le layoutMenu", Toast.LENGTH_SHORT).show();
+
                 bsb.setPeekHeight(250);
                 bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
                 tvBottomSheet = (TextView)findViewById(R.id.tvBottomSheet);
@@ -159,7 +159,7 @@ public class WelcomeActivity extends AppCompatActivity {
         layoutTracker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(WelcomeActivity.this, "j ai clicke sur le layoutTracker", Toast.LENGTH_SHORT).show();
+
                 bsb.setPeekHeight(250);
                 bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
                 tvBottomSheet = (TextView)findViewById(R.id.tvBottomSheet);
@@ -181,7 +181,7 @@ public class WelcomeActivity extends AppCompatActivity {
         ivClosed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(WelcomeActivity.this, "j ai clicke sur le clodedu BottomSheet", Toast.LENGTH_SHORT).show();
+
                 bsb.setPeekHeight(300);
                 bsb.setState(BottomSheetBehavior.STATE_COLLAPSED);
 
@@ -192,7 +192,7 @@ public class WelcomeActivity extends AppCompatActivity {
         daoSubCat = new SubCategoriesDAO(this);
         daoSubCat.delete();
         storeDAO = new StoreDAO(this);
-        //storeDAO.delete();
+        storeDAO.delete();
         storeDAO.insert(new Store("1","Store1","Ashdod 15 sheveth Levy"));
         storeDAO.insert(new Store("2","Store2","Ashdod 12 sheveth Benyamin"));
 

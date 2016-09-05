@@ -169,7 +169,7 @@ public class ZivaActivity extends AppCompatActivity {
                 checkedToppingsZiva = data.getBooleanArrayExtra("checkedToppingsZiva");
                 toppingsSOD = data.getParcelableArrayListExtra("toppingsSOD");
                 numToppings = toppingsSOD.size();
-                Toast.makeText(this,numToppings+" toppings", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,numToppings+" addings", Toast.LENGTH_SHORT).show();
                 if  (numToppings!=0)
                 { btnNumToppings.setVisibility(View.VISIBLE);
                     btnNumToppings.setText("+"+String.valueOf(numToppings));}
